@@ -6,9 +6,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
-COPY eps_citas_php/ /var/www/html/
+COPY index.php config.php /var/www/html/
 COPY proyecto.sql /opt/proyecto.sql
-COPY deploy/entrypoint.sh /usr/local/bin/eps-entrypoint
+COPY entrypoint.sh /usr/local/bin/eps-entrypoint
 RUN chmod +x /usr/local/bin/eps-entrypoint
 
 ENV PORT=10000
